@@ -14,7 +14,7 @@ def generate_launch_description():
 
     world_file = LaunchConfiguration('world')
 
-    pkg_share = FindPackageShare("prm_2026").find("prm_2026")
+    pkg_share = FindPackageShare("missao_bandeira").find("missao_bandeira") #  Alterado para `missao_bandeira` (antigo prm2026)
 
     world_path = PathJoinSubstitution([
         pkg_share,

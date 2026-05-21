@@ -23,7 +23,7 @@ Acesse a pasta `src` do seu workspace ROS 2:
 
 ```bash
 cd ~/ros2_ws/src/
-git clone https://github.com/matheusbg8/prm_2026.git
+git clone https://github.com/matheusbg8/missao_bandeira.git
 ````
 
 ### 2. Instalar dependências
@@ -43,7 +43,7 @@ Certifique-se de estar na **raiz do seu workspace** (geralmente `~/ros2_ws`) ant
 
 ```bash
 cd ~/ros2_ws
-colcon build --symlink-install --packages-select prm_2026
+colcon build --symlink-install --packages-select missao_bandeira
 ```
 
 ### 4. Atualizar o ambiente do terminal
@@ -59,7 +59,7 @@ source install/local_setup.bash
 ### 1. Iniciar o mundo no Gazebo
 
 ```bash
-ros2 launch prm_2026 inicia_simulacao.launch.py
+ros2 launch missao_bandeira inicia_simulacao.launch.py
 ```
 
 ### 2. Carregar o robô no ambiente
@@ -67,7 +67,7 @@ ros2 launch prm_2026 inicia_simulacao.launch.py
 Em um **novo terminal** (não se esqueça de `source install/local_setup.bash`):
 
 ```bash
-ros2 launch prm_2026 carrega_robo.launch.py
+ros2 launch missao_bandeira carrega_robo.launch.py
 ```
 
 ### 3. Controle automático (demonstração)
@@ -75,7 +75,7 @@ ros2 launch prm_2026 carrega_robo.launch.py
 Em outro terminal:
 
 ```bash
-ros2 run prm_2026 controle_robo
+ros2 run missao_bandeira controle_robo
 ```
 
 ### 4. **Controle manual (alternativa ao passo 3)**

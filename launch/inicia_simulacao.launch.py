@@ -35,8 +35,8 @@ def generate_launch_description():
         description='Nome do arquivo .sdf do mundo a ser carregado'
     )
 
-    # Encontra o diretório de instalação do pacote 'prm_2026'.
-    pkg_share = FindPackageShare("prm_2026").find("prm_2026")
+    # Encontra o diretório de instalação do pacote 'missao_bandeira'.
+    pkg_share = FindPackageShare("missao_bandeira").find("missao_bandeira")  #  Alterado para `missao_bandeira` (antigo prm2026)
 
     # Nome do arquivo do mundo (SDF) a ser carregado
 

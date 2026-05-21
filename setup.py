@@ -4,7 +4,7 @@ import os
 
 # Comandos para compilar o workspace:
 # Entrar na raíz do workspace: cd ~/ros2_ws
-# Compila o workspace: colcon build --symlink-install --packages-select prm_2026
+# Compila o workspace: colcon build --symlink-install --packages-select missao_bandeira
 # Não esqueça de dar source no workpace para atualizar os novos pacotes no terminal
 # se você configurou o source no .bashrc, você pode fechar e abrir novamente o
 # terminal após compilar o workspce.
@@ -22,7 +22,7 @@ def package_dir_tree(target_dir, base_install_path):
             entries.setdefault(install_path, []).append(filepath)
     return list(entries.items())
 
-package_name = 'prm_2026'
+package_name = 'missao_bandeira' #alterado para missao_bandeira - Instrução em sala de aula
 
 data_files = [
     # Requerido pelo ROS2
@@ -58,10 +58,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'tartaruga = prm_2026.controle_tartaruga:main',
-            'ground_truth_odometry = prm_2026.ground_truth_odometry:main',
-            'controle_robo = prm_2026.controle_robo:main',
-            'robo_mapper = prm_2026.robo_mapper:main'
+            'tartaruga = missao_bandeira.controle_tartaruga:main',
+            'ground_truth_odometry = missao_bandeira.ground_truth_odometry:main', #alterado para missao_bandeira - Instrução em sala de aula
+            'controle_robo = missao_bandeira.controle_robo:main',	#alterado para missao_bandeira - Instrução em sala de aula
+            'robo_mapper = missao_bandeira.robo_mapper:main',	#alterado para missao_bandeira - Instrução em sala de aula
+            'missao_controle = missao_bandeira.missao_controle:main'  #alterado de prm_2026 para missao_bandeira - Instrução em sala de aula
         ],
     },
 )
