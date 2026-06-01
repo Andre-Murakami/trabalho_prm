@@ -58,7 +58,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'tartaruga = missao_bandeira.controle_tartaruga:main',
+            #'tartaruga = missao_bandeira.controle_tartaruga:main',
             'ground_truth_odometry = missao_bandeira.ground_truth_odometry:main', #alterado para missao_bandeira - Instrução em sala de aula
             'controle_robo = missao_bandeira.controle_robo:main',	#alterado para missao_bandeira - Instrução em sala de aula
             'robo_mapper = missao_bandeira.robo_mapper:main',	#alterado para missao_bandeira - Instrução em sala de aula
