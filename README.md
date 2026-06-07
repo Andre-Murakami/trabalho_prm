@@ -1,19 +1,6 @@
-# PRM - Programação de Robôs Móveis
+# TRABALHO 1 - SSC0712 Programação de Robôs Móveis
 
 **Disciplina SSC0712**  
-Oferecida para os cursos de Engenharia de Computação e áreas afins na **USP São Carlos**
-
-Este repositório contém o material da disciplina *Programação de Robôs Móveis*, focada no desenvolvimento de soluções em robótica móvel utilizando **ROS 2 Humble** e o simulador **Gazebo Fortress**.
-
-## Tecnologias utilizadas
-
-- ROS 2 Humble
-- Gazebo Fortress
-- Python
-- RViz / Gazebo GUI
-- [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard)
-
----
 
 ## Como utilizar o pacote
 
@@ -23,7 +10,7 @@ Acesse a pasta `src` do seu workspace ROS 2:
 
 ```bash
 cd ~/ros2_ws/src/
-git clone https://github.com/matheusbg8/missao_bandeira.git
+git clone https://github.com/Andre-Murakami/trabalho_prm.git
 ````
 
 ### 2. Instalar dependências
@@ -41,55 +28,40 @@ rosdep install --from-paths src --ignore-src -r -y
 
 Certifique-se de estar na **raiz do seu workspace** (geralmente `~/ros2_ws`) antes de compilar:
 
-```bash
+
 cd ~/ros2_ws
-colcon build --symlink-install --packages-select missao_bandeira
-```
+rm -rf build install log
+cd ~/ros2_ws && colcon build --symlink-install --packages-select missao_bandeira && source install/local_setup.bash
+
+
 
 ### 4. Atualizar o ambiente do terminal
 
-```bash
-source install/local_setup.bash
-```
 
----
+source install/local_setup.bash
+
 
 ## Executando a simulação
 
-### 1. Iniciar o mundo no Gazebo
+### 1. Abra um terminal - Terminal 1:Iniciar o mundo no Gazebo
 
-```bash
+cd ~/ros2_ws && source install/local_setup.bash
 ros2 launch missao_bandeira inicia_simulacao.launch.py
-```
 
-### 2. Carregar o robô no ambiente
+Espera o Gazebo abrir completamente, depois:
 
-Em um **novo terminal** (não se esqueça de `source install/local_setup.bash`):
+### 2. Abra outro terminal - Terminal 2: Carregar o robô no ambiente
 
-```bash
+cd ~/ros2_ws && source install/local_setup.bash
 ros2 launch missao_bandeira carrega_robo.launch.py
-```
 
-### 3. Controle automático (demonstração)
+Espera o robô aparecer no Gazebo, depois:
 
-Em outro terminal:
 
-```bash
-ros2 run missao_bandeira controle_robo
-```
+### 3. Abra um terceiro terminal: Terminal 3: Programa encontra bandeira azul e para em frente a ela
 
-### 4. **Controle manual (alternativa ao passo 3)**
+cd ~/ros2_ws && source install/local_setup.bash
+ros2 run missao_bandeira missao_controle
 
-Você pode controlar o robô usando o teclado, como alternativa ao controle automático:
 
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
-
-#### Instalar `teleop_twist_keyboard` (caso não esteja disponível)
-
-```bash
-sudo apt install ros-humble-teleop-twist-keyboard
-```
-
-> **Importante**: execute **o passo 3 *ou* o passo 4**, dependendo se deseja usar o controle automático ou manual.
+# TRABALHO 1 - SSC0712 Programação de Robôs Móveis - Grupo X

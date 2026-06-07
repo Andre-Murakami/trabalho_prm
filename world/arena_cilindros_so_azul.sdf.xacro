@@ -28,27 +28,17 @@
     <!-- Centro -->
     <xacro:property name="raio_centro" value="0.5"/>
 
-    <!-- Bandeira -->
-    <xacro:property name="flag_z"            value="0.2"/>     <!-- altura da base da bandeira -->
-    <xacro:property name="flag_rot"          value="-0.45"/>  <!-- yaw(rad): 0°=0, 45°=0.7854, 90°=1.5708, 135°=2.3562, 180°=3.1416, 225°=3.9270, 270°=4.7124, 315°=5.4978, 360°=6.2832 -->
-
     <!-- ============================================================ -->
-    <!-- POSIÇÃO DA BANDEIRA VERMELHA — ALTERE AQUI                  -->
-    <!-- x negativo = campo vermelho (direita na vista aérea)        -->
+    <!-- POSIÇÃO DA BANDEIRA AZUL — ALTERE AQUI, ANDRE               -->
+    <!-- x positivo = campo azul (esquerda na vista aérea)           -->
     <!-- y = posição lateral (0 = centro do campo)                   -->
     <!-- ============================================================ -->
-    <xacro:property name="red_flag_x" value="-8.0"/>
-    <xacro:property name="red_flag_y" value="0.5"/>
+    <xacro:property name="blue_flag_x" value="9.0"/>   <!-- altere este valor -->
+    <xacro:property name="blue_flag_y" value="5.0"/>   <!-- altere este valor -->
 
-    <!-- ============================================================ -->
-    <!-- POSIÇÃO DA BANDEIRA AZUL — ALTERE AQUI                      -->
-    <!-- x positivo = campo azul (esquerda na vista aérea)           -->
-    <!-- y = posição lateral (0 = centro do campo)        6.5 e -1.05    8.2 e -3.3          -->
-    <!-- ============================================================ -->
-    <xacro:property name="blue_flag_x" value="8.25"/>
-    <xacro:property name="blue_flag_y" value="-3.1"/>
-    
-    
+    <!-- Bandeira -->
+    <xacro:property name="flag_z"            value="0.2"/>     <!-- altura da base da bandeira -->
+    <xacro:property name="flag_rot"          value="1.5708"/>  <!-- rotação em Z -->
     <xacro:property name="flag_pole_radius"  value="0.03"/>
     <xacro:property name="flag_pole_length"  value="0.4"/>
     <xacro:property name="flag_panel_size"   value="0.3 0.01 0.2"/>
@@ -299,14 +289,14 @@
         <!-- Bandeira vermelha -->
         <xacro:bandeira
         name="red_flag"
-        x="${red_flag_x}"
-        y="${red_flag_y}"
+        x="${-(base_offset+base_w-1.0)}"
+        y="0"
         z="${flag_z}"
         rot="${flag_rot}"
         cor="1 0 0 1"
         label="20" />
 
-        <!-- Bandeira azul -->
+        <!-- Bandeira azul sss x="${(base_offset+base_w-1.0)}"  y="0"     -->
         <xacro:bandeira
         name="blue_flag"
         x="${blue_flag_x}"
@@ -498,8 +488,8 @@
         <include>
             <uri>ObstaculosCilindricos</uri>
             <name>obstaculos_azul</name>
-            <pose> 3.0 -4.0 0.0 0 0 0</pose>
-            <!-- Defefinindo label de obstaculos como 30 -->    
+            <pose> 0.0 0.0 0.0 0 0 0</pose>
+            <!-- Defefinindo label de obstaculos como 30 -->       <pose> 3.0 -4.0 0.0 0 0 0</pose>
             <plugin name="ignition::gazebo::systems::Label" filename="ignition-gazebo-label-system">
                 <label>30</label>
             </plugin>
